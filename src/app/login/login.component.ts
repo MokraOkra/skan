@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     const loginData: LoginRequest = {
       username: <string>this.loginGroup.controls.loginControl.value, 
       password: <string>this.loginGroup.controls.passwordControl.value
-    }
+    };
     await lastValueFrom(this.userService.login(loginData)).then((user: string) => {
       this.loggedUser.updateLoggedUser(user);
       this.toastr.success("Pomyślne logowanie", "Sukces");
