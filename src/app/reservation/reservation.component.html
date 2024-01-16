@@ -1,0 +1,46 @@
+<div class="reservation-container">
+    <div class="data-container">
+        <div class="selection-container">
+            <div class="action-title">
+                <span>Umów wizytę</span>
+            </div>
+            <div class="action-type">
+                <div class="action-type-title">
+                    <span>Wybierz rodzaj wizyty*:</span>
+                </div>
+                <div class="action-type-list">
+                    <mat-radio-group
+                        class="radio-group"
+                        [(ngModel)]="choosenService">
+                            <mat-radio-button class="radio-button" *ngFor="let service of reservationData.services" [value]="service.serviceName">
+                                {{ service.serviceName }} {{ service.servicePrice }}zł
+                            </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div class="button-container">
+                <button mat-raised-button color="primary" (click)="confirmReservation()" [disabled]="choosenService === ''"> Potwierdź wizytę</button>
+                <div class="span-container"><span>* Pola wymagane</span></div>
+            </div>
+        </div>
+        <div class="details-container">
+            <div class="details-panel">
+                <div class="details-avatar">
+                    <img [src]="reservationData.avatar">
+                </div>
+                <div class="personal-data">
+                    <span>{{ reservationData.name }} {{ reservationData.surname }}</span>
+                    <span>{{ reservationData.specialization }}</span>
+                </div>
+            </div>
+            <div class="details-panel">
+                <mat-icon [inline]="true">calendar_today</mat-icon>
+                <span>{{ date }} {{ time }}</span>
+            </div>
+            <div class="details-panel">
+                <mat-icon [inline]="true">location_on</mat-icon>
+                <span>{{ reservationData.street }} {{ reservationData.buildingNumber }}, {{ reservationData.city }}</span>
+            </div>
+        </div>
+    </div>
+</div>

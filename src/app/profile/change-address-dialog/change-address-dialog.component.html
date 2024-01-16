@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Zmień Adres</h1>
+<div mat-dialog-content>
+    <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Miasto</mat-label>
+        <input matInput [formControl]="changeAddressGroup.controls.cityControl" type="text">
+    </mat-form-field>
+    <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Ulica</mat-label>
+        <input matInput [formControl]="changeAddressGroup.controls.streetControl" type="text">
+    </mat-form-field>
+    <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Numer Budynku</mat-label>
+        <input matInput [formControl]="changeAddressGroup.controls.buildingNumberControl" type="text">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Anuluj</button>
+  <button mat-button disabled [disabled]="!isValid" mat-dialog-close cdkFocusInitial [mat-dialog-close]="data">Potwierdź</button>
+</div>

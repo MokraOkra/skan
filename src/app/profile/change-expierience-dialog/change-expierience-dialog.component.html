@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Zmień Doświadczenie</h1>
+<div mat-dialog-content>
+    <angular-editor [formControl]="htmlControl" [config]="editorConfig"></angular-editor>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Anuluj</button>
+  <button mat-button disabled [disabled]="!isValid" mat-dialog-close cdkFocusInitial [mat-dialog-close]="data">Potwierdź</button>
+</div>

@@ -1,0 +1,22 @@
+<div class="login-container">
+    <div class="login-holder">
+        <div class="login-title">
+            Logowanie
+        </div>
+        <div class="button-holder">
+            <mat-form-field class="form-field" appearance="fill">
+                <mat-label>Nazwa użytkownika</mat-label>
+                <input matInput [formControl]="loginGroup.controls.loginControl" type="text">
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="fill">
+                <mat-label>Hasło</mat-label>
+                <input matInput [formControl]="loginGroup.controls.passwordControl" type="password">
+            </mat-form-field>
+        </div>
+        <div class="button-container">
+            <button mat-raised-button color="primary" (click)="login()" [disabled]="!valid"> Zaloguj</button>
+            <button mat-raised-button color="primary" (click)="navigateToRegister()"> Rejerstracja</button>
+            <div class="span-container"><span>* Pola wymagane</span></div>
+        </div>
+    </div>
+</div>

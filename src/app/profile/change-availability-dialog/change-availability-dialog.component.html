@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Zmień dostępność</h1>
+<div mat-dialog-content>
+    <section class="section" [formGroup]="daysGroup">
+        <h4>Wybierz dni:</h4>
+        <p><mat-checkbox color="primary" formControlName="sundayControl">Niedziela</mat-checkbox></p>
+        <p><mat-checkbox color="primary" formControlName="mondayControl">Poniedziałek</mat-checkbox></p>
+        <p><mat-checkbox color="primary" formControlName="tuesdayControl">Wtorek</mat-checkbox></p>
+        <p><mat-checkbox color="primary" formControlName="wednesdayControl">Środa</mat-checkbox></p>
+        <p><mat-checkbox color="primary" formControlName="thursdayControl">Czwartek</mat-checkbox></p>
+        <p><mat-checkbox color="primary" formControlName="fridayControl">Piątek</mat-checkbox></p>
+        <p><mat-checkbox color="primary" formControlName="saturdayControl">Sobota</mat-checkbox></p>
+      </section>
+    <mat-form-field class="chip-list" appearance="fill">
+        <mat-label>Wybrane godziny</mat-label>
+        <mat-chip-grid #chipGrid>
+          <mat-chip-row *ngFor="let hour of data.hours"
+                        (removed)="remove(hour)"
+                        [editable]="true"
+                        (edited)="edit(hour, $event)">
+            {{hour}}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+          <input placeholder="Wpisz godzinę"
+                 [matChipInputFor]="chipGrid"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="add($event)"/>
+        </mat-chip-grid>
+      </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Anuluj</button>
+  <button mat-button mat-dialog-close cdkFocusInitial [mat-dialog-close]="data">Potwierdź</button>
+</div>

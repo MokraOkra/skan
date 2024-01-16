@@ -1,0 +1,34 @@
+<div class="leftside-container">
+    <div class="personal-data">
+        <div class="avatar"><img [src]="doctorData?.avatar"></div>
+        <div class="data">
+            <div class="name" (click)="navigateToDoctorProfile()">{{ doctorData?.name }} {{ doctorData?.surname }}</div>
+            <div class="specialization">{{ doctorData?.specialization }}</div>
+        </div>
+    </div>
+    <div class="service-data">
+        <div class="address-title">Adres</div>
+        <div class="address">{{ doctorData?.street }} {{ doctorData?.buildingNumber }}, {{ doctorData?.city }}</div>
+        <div class="service">{{ doctorData?.serviceName }} {{ doctorData?.servicePrice }}zł</div>
+    </div>
+</div>
+<div class="rightside-container">
+    <div class="date-picker">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>MM/DD/RRRR</mat-label>
+            <input matInput [matDatepicker]="picker" [min]="minDate" [formControl]="dateControl">
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="picker.open()">
+            <mat-icon>calendar_today</mat-icon>
+            Wybierz
+        </button>
+    </div>
+    <div class="hour-picker">
+        <ng-container *ngFor="let hour of hours">
+            <button mat-raised-button disabled color="primary" class="hour" (click)="navigateToReservation(hour)" [disabled]="!hour.available">
+                {{ hour.hour }}
+            </button>
+        </ng-container>
+    </div>
+</div>

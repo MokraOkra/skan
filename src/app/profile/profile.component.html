@@ -1,0 +1,74 @@
+<div class="profile-container">
+    <div class="profile-holder">
+        <div class="title-holder">
+            <div class="profile-title">
+                Profil 
+            </div>
+            <div class="profile-avatar">
+                <img [src]="profileData.avatar">
+            </div>
+        </div>
+            <div class="username-holder">
+                <span class="username-sizer blue">{{ profileData.name }} {{ profileData.surname }}</span>
+                <span class="specialization-sizer">{{ profileData.specialization }}</span>
+            </div>
+            <div class="button-holder">
+                <div class="datachange-dialog-buttons" *ngIf="isOwnProfile">
+                    <button mat-raised-button color="primary" (click)="openPasswordDialog()">Zmień hasło</button>
+                    <button mat-raised-button color="primary" (click)="openAvatarDialog()">Zmień zdjęcie</button>
+                </div>
+        </div>
+        <div class="additional-data" *ngIf="isDoctor">
+            <div class="public-data-holder">
+                <div class="public-data">
+                    <div class="address-title blue">Adres</div>
+                    <div class="address">{{ profileData.street }} {{ profileData.buildingNumber }}, {{ profileData.city }}</div>
+                </div>
+                <div class="private-data" *ngIf="isOwnProfile">
+                    <button mat-raised-button color="primary" (click)="openAddressDialog()">Zmień adres</button>
+                </div>
+            </div>
+            <div class="public-data-holder">
+                <div class="public-data">
+                    <div class="services-title blue">Usługi</div>
+                    <div class="services" *ngFor="let service of profileData.services">{{ service.serviceName }} {{ service.servicePrice }} </div>
+                </div>
+                <div class="private-data" *ngIf="isOwnProfile">
+                    <button mat-raised-button color="primary" (click)="openServicesDialog()">Zmień usługi</button>
+                </div>
+            </div>
+            <div class="public-data-holder">
+                <div class="public-data">
+                    <div class="availability-title blue">Dostępność</div>
+                    <div class="availability-title blue dented">Dni</div>
+                    <div class="availability dented" *ngFor="let day of profileData.days">{{ returnDay(day) }}</div>
+                    <div class="availability-title blue dented">Godziny</div>
+                    <div class="availability dented" *ngFor="let hour of profileData.hours">{{ hour }}</div>
+                </div>
+                <div class="private-data" *ngIf="isOwnProfile">
+                    <button mat-raised-button color="primary" (click)="openAvailabilityDialog()">Zmień dostępność</button>
+                </div>
+            </div>
+            <div class="public-data-holder">
+                <div class="public-data">
+                    <div class="expirience-title blue">Doświadczenie</div>
+                    <div class="expirience" [innerHtml]="profileData.expirience"></div>
+                </div>
+                <div class="private-data" *ngIf="isOwnProfile">
+                    <button mat-raised-button color="primary" (click)="openExpierienceDialog()">Zmień doświadczenie</button>
+                </div>
+            </div>
+        </div>
+        <div class="associated-reservations" *ngIf="isOwnProfile">
+            <div class="reservation" *ngFor="let reservation of profileData.associatedReservations">
+            <div class="reservation-container">
+                <div class="reservation-details">
+                    <div class="name">{{ reservation.doctorName }} {{ reservation.doctorSurname }} - {{ reservation.specialization }}</div>
+                    <div class="address">{{ reservation.street }} {{ reservation.buildingNumber }}, {{ reservation.city }}</div>
+                    <div class="service">{{ reservation.reservationDate }} {{ reservation.reservationHour }}, {{ reservation.serviceType }}</div>
+                </div>
+                <div class="button"><button mat-raised-button color="primary" (click)="openReservationDialog(reservation)">Anuluj rezerwację</button></div>
+            </div>
+        </div>
+    </div>
+</div>

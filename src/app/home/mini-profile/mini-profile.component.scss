@@ -1,0 +1,101 @@
+:host {
+    display: flex;
+}
+.leftside-container {
+    width: 25rem;
+    height: 20rem;
+
+    .personal-data {
+        display: flex;
+        width: 25rem;
+        height: 10rem;
+
+        .avatar {
+            width: 8rem;
+            height: 8rem;
+            padding: 1rem;
+
+            img {
+                width: 8rem;
+                height: 8rem;
+            }
+        }
+
+        .data {
+            width: 15rem;
+            height: 10rem;
+
+            .name {
+                width: 15rem;
+                height: 3rem;
+                font-size: large;
+                display: table-cell;
+                vertical-align: bottom;
+            }
+
+            .specialization {
+                width: 15rem;
+                height: 7rem;
+                padding-top: 0.3rem;
+            }
+        }
+    }
+
+    .service-data {
+        width: 25rem;
+        height: 10rem;
+        padding-left: 1rem;
+
+        .address-title {
+            height: 2rem;
+            padding-top: 1rem;
+        }
+        .address {
+            width: 25rem;
+            height: 2rem;
+        }
+
+        .service {
+            width: 25rem;
+            height: 2rem;
+            padding-top: 1rem;
+            vertical-align: middle;
+        }
+    }
+}
+.rightside-container {
+    width: 25rem;
+    height: 20rem;
+
+    .date-picker {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25rem;
+        height: 5rem;
+
+        mat-form-field {
+            margin-top: 1.5rem;
+            margin-right: 1rem;
+        }
+    }
+
+    .hour-picker {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 25rem;
+        height: 15rem;
+        padding: 0.7rem;
+
+        .hour {
+            width: 3.5rem !important;
+            height: 2rem !important;
+            margin: 0.5rem;
+            text-align: center;
+            padding-top: 0.5rem;
+            vertical-align: middle;
+            color: white;
+        }
+    }
+}

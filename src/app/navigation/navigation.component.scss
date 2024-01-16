@@ -1,0 +1,28 @@
+mat-toolbar {
+    .middle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left:7.5rem;
+    }
+}
+mat-form-field {
+    margin-top: 1.5rem;
+    margin-right: 0.5rem;
+
+    .mat-mdc-text-field-wrapper {
+        background-color: white !important;
+    }
+}
+mat-form-field:first {
+    margin-left: 5rem;
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
+.nav-button {
+    margin-right: 0.5rem;
+}
+.middle {
+    margin-left: 30%;
+}

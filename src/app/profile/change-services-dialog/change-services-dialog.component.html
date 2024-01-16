@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Zmień usługi</h1>
+<div mat-dialog-content>
+<ng-container *ngFor="let service of data">
+    <div>
+        <input matInput type="text" [(ngModel)]="service.serviceName">
+        <input matInput type="text" [(ngModel)]="service.servicePrice">
+        <button mat-icon-button (click)="remove(service)"></button>
+    </div>
+</ng-container>
+<button mat-icon-button (click)="add()"></button>
+</div>
+<div mat-dialog-actions>
+<button mat-button mat-dialog-close>Anuluj</button>
+<button mat-button mat-dialog-close cdkFocusInitial [mat-dialog-close]="data">Potwierdź</button>
+</div>
